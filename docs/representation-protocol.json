@@ -1,0 +1,20 @@
+{
+  "experiment": "representation-v1",
+  "status": "implemented; live execution pending",
+  "hypothesis": "Labelled-text output-contract compliance explains part of the original DirectLLM pipeline gap.",
+  "conditions": ["labelled-text", "unconstrained-json"],
+  "independent_variable": "Output representation and its required instructions/strict parser",
+  "controlled_variables": ["policy", "provider/model/settings", "input serialization", "no provider schema enforcement", "domain/reference validation", "evaluator", "verifier", "benchmark", "repetition count", "permissions"],
+  "provider": "ollama",
+  "model": "qwen2.5:14b",
+  "split": "dev",
+  "default_repetitions": 3,
+  "default_cases": 20,
+  "default_generation_attempts": 120,
+  "order": "Repetition then case; alternate first condition by zero-based case index plus repetition minus one parity",
+  "primary_metrics": ["overall correctness", "selection correctness", "required abstention correctness", "execution failures", "serialization/parser failures", "domain/reference failures", "review precision/recall", "policy violations", "joint-success paired decision agreement", "repeated agreement"],
+  "diagnostic_metrics": ["failed apparent-correct rejected targets", "failed explicit incorrect targets", "failed ambiguous targets", "failure stage counts", "human judgment required", "confirmed full substantive correctness unavailable"],
+  "validity_threats": ["representation instructions/parser change together", "related synthetic cases and non-independent repetitions", "backend/cache/load variation", "target matching is not full semantic validation", "provider payloads can be unavailable", "unequal prompt lengths"],
+  "procedure": ["Run offline tests and verify local configuration/model separately before authorization to generate", "Validate frozen dev benchmark and write run-specific protocol before calls", "Execute counterbalanced schedule exactly", "Preserve raw responses, hashes, primary outcomes and verification after each observation", "Diagnose after scoring; no reference data reaches strategies", "Do not repair, tune, selectively rerun, resume or run held-out"],
+  "command": "python -m decisionlab.cli representation --provider ollama --allow-live --split dev --repeats 3 --output runs/representation/dev"
+}

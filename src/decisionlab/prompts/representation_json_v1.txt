@@ -1,0 +1,25 @@
+Return exactly one JSON object, without Markdown, introductory or trailing prose.
+The API will not enforce a schema. Include every field below; do not add fields.
+Use the same decision information described below, with one concise reason per
+assessment. Empty assessments/unknowns are [] rather than omitted fields.
+{
+  "status": "selected or abstained",
+  "selected_option_id": "supplied option ID, or null when abstaining",
+  "confidence": "number from 0 to 1, or null when unavailable",
+  "requested_review": "Boolean",
+  "explanation": "concise evidence-linked explanation",
+  "assessments": [{
+    "option_id": "supplied option ID",
+    "eligibility": "eligible or ineligible or unknown",
+    "reasons": ["one concise reason"],
+    "evidence_ids": ["supplied Fact IDs"],
+    "constraint_ids": ["supplied Constraint IDs"]
+  }],
+  "unknowns": [{
+    "description": "description of the unknown",
+    "affected_option_ids": ["supplied option IDs"],
+    "material_to_decision": "Boolean"
+  }]
+}
+Replace placeholder strings with typed values, not literal alternatives. Empty
+reference lists are [].

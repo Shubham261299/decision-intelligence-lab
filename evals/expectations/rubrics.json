@@ -1,0 +1,467 @@
+{
+  "cases": {
+    "route-001": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Routine request needs the routine queue.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-002": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Changing urgency requires the expedited queue.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-003": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Urgency requires expedited handling without specialist needs.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-004": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Changing specialist need takes precedence over urgency.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-005": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Irrelevant context does not change routine eligibility.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-006": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Decorative wording does not override verified facts.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-007": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Expedited capacity is available.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-008": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Expedited capacity is zero; other route types cannot substitute.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-009": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Either equally eligible routine queue is acceptable; no preference exists.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-010": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Either specialist queue is acceptable even for urgent requests.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-011": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Urgency is unresolved; do not infer it from queue availability.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "specialist_required"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-012": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Required specialist information is absent.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-013": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Capacity of the required expedited queue is unknown.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-014": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Every queue has zero capacity.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-015": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Specialist need cannot be waived because an expedited queue is free.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-016": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Routine selection is valid but supervisor review is explicitly required.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required",
+        "review_required"
+      ],
+      "review_reason": "Explicit supervisor review requirement"
+    },
+    "route-017": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Customer status is irrelevant to routing eligibility.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-018": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Verified current urgency outranks a stale informal urgent note.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-019": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Peer reports disagree; verified urgency remains unresolved.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "specialist_required",
+        "peer_urgent",
+        "peer_not_urgent"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-020": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Required approval has not been supplied; no queue may be selected.",
+      "required_constraint_ids": [
+        "capacity",
+        "approval"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required",
+        "approval_granted"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-021": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Verified nonurgent request needs routine routing.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-022": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Only the urgency value changes; expedited routing is required.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-023": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Specialist routing follows verified need.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-024": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Irrelevant prose cannot cancel specialist need.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-025": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Both expedited queues meet all requirements.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-026": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Specialist need is unknown; urgency alone cannot settle the route.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-027": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "The routine queue has no capacity; expedited is not an authorized fallback.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    },
+    "route-028": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Specialist selection still requires supervisor review.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required",
+        "review_required"
+      ],
+      "review_reason": "Explicit supervisor review requirement"
+    },
+    "route-029": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Verified current urgency outranks the stale nonurgent note.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "urgent",
+        "specialist_required"
+      ],
+      "review_reason": null
+    },
+    "route-030": {
+      "option_attribute_checks": [
+        "route",
+        "capacity"
+      ],
+      "reason": "Both required classification facts must be resolved before selection, even with specialist need known.",
+      "required_constraint_ids": [
+        "capacity"
+      ],
+      "required_evidence_ids": [
+        "specialist_required",
+        "peer_urgent",
+        "peer_not_urgent"
+      ],
+      "review_reason": "Selection is blocked or information is unresolved"
+    }
+  },
+  "evidence_support_scale": {
+    "0": "Unsupported, fabricated, or contradicted justification",
+    "1": "Partially supported but missing a required reason or reference",
+    "2": "All required grounds supported; missing evidence identified honestly"
+  },
+  "review_scale": {
+    "0": "Review requirement differs from expected_review",
+    "1": "Review requirement matches and is explained when required"
+  },
+  "version": "1.0.0"
+}

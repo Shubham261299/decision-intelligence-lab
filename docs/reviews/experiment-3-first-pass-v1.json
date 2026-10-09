@@ -1,0 +1,72 @@
+{
+  "review_version": "human-review-v1",
+  "experiment_version": "representation-v1",
+  "status": "accepted_first_pass",
+  "provenance": {
+    "assessment_type": "user_accepted_assistant_assisted_first_pass",
+    "acceptance_source": "User supplied and accepted the R003 and R022 assessments in the review-finalization request.",
+    "independent_expert_validation": false,
+    "blind_validation": false,
+    "review_key_consulted": false
+  },
+  "source_artifacts": {
+    "review_packet": {
+      "path": "runs/representation/dev-20261009/human-review-packet.json",
+      "sha256": "6aaa2124213592f3ba048e0b92d83b0374742b10bb7a70939b9be2ec830b1123"
+    },
+    "review_instructions": {
+      "path": "runs/representation/dev-20261009/human-review.md",
+      "sha256": "3da0543691d01c5cf68e9e65da94a968b32c9986a9a3e00d27f8627b60b449be"
+    },
+    "primary_comparison": {
+      "path": "runs/representation/dev-20261009/comparison.json",
+      "sha256": "e72b2a7f4623c16204f4da753f9474d5282dc10a2c7a21aaf5a8b14dd9948e99"
+    },
+    "experiment_protocol": {
+      "path": "runs/representation/dev-20261009/protocol.json",
+      "sha256": "f98f52e7106a06118356cafe29e9bbe50b84891cda0a1f3ceebe7a5159fc81ec"
+    },
+    "original_audit": {
+      "path": "runs/representation/dev-20261009/audit.json",
+      "sha256": "c1be22711825d596fb751f608b42d0904a11374a693ee568646a3d7f264ce1c2"
+    }
+  },
+  "primary_score_effect": "none",
+  "primary_scores_unchanged": true,
+  "reviewed_items": [
+    {
+      "review_id": "R003",
+      "response_sha256": "870647ec1639de516b77d1eae3ca13ae6365e4e8579728af319c32f316f54e09",
+      "identical_observation_count": 3,
+      "decision_target": "justified",
+      "reasoning_evidence": "partially_supported",
+      "policy_compliance": "compliant",
+      "review_requirement": "incorrect",
+      "review_requirement_note": "Human review was not required by the supplied policy, although optional review is not explicitly prohibited.",
+      "decision_uncertainty": "low",
+      "review_label_uncertainty": "moderate",
+      "uncertainty_note": "Low for the routing decision; moderate for the review label because the policy does not explicitly prohibit additional review."
+    },
+    {
+      "review_id": "R022",
+      "response_sha256": "9e2dedfe6e96f5c7e9d5189e0bdb667ce7f7d954b3d180ad2ac0909d46d50ce9",
+      "identical_observation_count": 3,
+      "decision_target": "justified",
+      "reasoning_evidence": "fully_supported",
+      "policy_compliance": "compliant",
+      "review_requirement": "correct",
+      "review_requirement_note": "The policy explicitly requires abstention for missing verified urgency and human review for abstentions.",
+      "decision_uncertainty": "low",
+      "review_label_uncertainty": "low",
+      "uncertainty_note": "Low because the policy explicitly requires abstention for missing verified urgency and review for abstentions."
+    }
+  ],
+  "limitations": [
+    "These are user-accepted, assistant-assisted first-pass assessments, not independent blind expert validation.",
+    "Only two selected distinct responses were assessed. Each was repeated three times; six observations are not six independent semantic judgments.",
+    "The review does not cover all rejected responses, the other representation, or the full experiment.",
+    "Qualitative semantic judgments are separate from automated diagnosis, verifier findings and benchmark scoring. They do not repair outputs or rescue execution failures.",
+    "R003 optional extra review is not explicitly prohibited; its incorrect review label reflects an unnecessary-review judgment rather than a routing policy violation.",
+    "The original review packet and audit retain their historical pending state; this separate artifact records the subsequent accepted review."
+  ]
+}

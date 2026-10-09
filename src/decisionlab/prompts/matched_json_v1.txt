@@ -1,0 +1,5 @@
+Return exactly one JSON object conforming to the schema below. Do not use Markdown
+fences, introductory text, or trailing commentary. Include every required field;
+use null only where the schema permits it. This contract applies regardless of
+whether the provider enforces the schema. The schema describes output structure,
+not additional facts or permissions to invent references.

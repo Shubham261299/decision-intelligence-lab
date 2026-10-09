@@ -1,0 +1,106 @@
+{
+  "benchmark": "decisionlab-service-routing",
+  "case_count": 30,
+  "pairs": [
+    {
+      "changed_field": "facts.urgent.value",
+      "id": "pair-01",
+      "kind": "relevant",
+      "members": [
+        "route-001",
+        "route-002"
+      ]
+    },
+    {
+      "changed_field": "facts.specialist_required.value",
+      "id": "pair-02",
+      "kind": "relevant",
+      "members": [
+        "route-003",
+        "route-004"
+      ]
+    },
+    {
+      "changed_field": "context",
+      "id": "pair-03",
+      "kind": "wording",
+      "members": [
+        "route-005",
+        "route-006"
+      ]
+    },
+    {
+      "changed_field": "options.q-e.attributes.capacity",
+      "id": "pair-04",
+      "kind": "relevant",
+      "members": [
+        "route-007",
+        "route-008"
+      ]
+    },
+    {
+      "changed_field": "facts.urgent.value",
+      "id": "pair-05",
+      "kind": "relevant",
+      "members": [
+        "route-021",
+        "route-022"
+      ]
+    },
+    {
+      "changed_field": "context",
+      "id": "pair-06",
+      "kind": "wording",
+      "members": [
+        "route-023",
+        "route-024"
+      ]
+    }
+  ],
+  "policy_version": "routing-benchmark-1",
+  "schema_version": "1",
+  "sha256": {
+    "cases/dev.jsonl": "a6548c9f82a7bfbf86895b69a0f24dfbb151d915cc0ea9c64b04c018eca88400",
+    "cases/held_out.jsonl": "62524f1337af8b8f54bb62dcd3a203299fd15e5673e2c4e66251ca08acf1de4f",
+    "expectations/dev.jsonl": "69f81f12c5807926f8c225e75d6bce03c082b0229ed9422fbdba1080aecf4cf0",
+    "expectations/held_out.jsonl": "692a6d02702bb6e550866710da2c42d4ab258ce44697e72e1aba049b8dfacde0",
+    "expectations/rubrics.json": "a799a971cded9906b02070ad06f520a0c8b894ec0bd502be2a59a78039cd1239"
+  },
+  "splits": {
+    "dev": [
+      "route-001",
+      "route-002",
+      "route-003",
+      "route-004",
+      "route-005",
+      "route-006",
+      "route-007",
+      "route-008",
+      "route-009",
+      "route-010",
+      "route-011",
+      "route-012",
+      "route-013",
+      "route-014",
+      "route-015",
+      "route-016",
+      "route-017",
+      "route-018",
+      "route-019",
+      "route-020"
+    ],
+    "held_out": [
+      "route-021",
+      "route-022",
+      "route-023",
+      "route-024",
+      "route-025",
+      "route-026",
+      "route-027",
+      "route-028",
+      "route-029",
+      "route-030"
+    ]
+  },
+  "version": "1.0.0"
+}

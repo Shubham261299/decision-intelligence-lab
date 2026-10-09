@@ -1,0 +1,12 @@
+{
+  "case_count": 179,
+  "policy_version": "routing-benchmark-1",
+  "sha256": {
+    "dev.jsonl": "0c339c525521abee5e044587de1b0aeffc2953a28dadcd0c552e2402339303c5",
+    "held_out.jsonl": "43d11daeacc03971ad4929bda3d9b54026e5ae382e6757ae05b7909a98d1cf5d"
+  },
+  "source_dataset_version": "1.0.0",
+  "source_manifest_sha256": "687a87ba566ed3ee29682ea380e72d1af91a3b0e3b5bb1f54e42515e1931ba6c",
+  "transformation_version": "routing-invariance-1",
+  "version": "1"
+}

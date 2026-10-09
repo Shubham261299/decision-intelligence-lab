@@ -1,0 +1,23 @@
+Return normal labelled text, not JSON or Markdown. The API will not enforce a
+schema. Use these labels exactly, in this order, with each value on one line:
+Decision: selected or abstained
+Option: supplied option ID, or none when abstaining
+Confidence: decimal fraction from 0 to 1, or unavailable
+Human review: yes or no
+Explanation: concise evidence-linked explanation
+Assessments: present or none
+Unknowns: present or none
+
+For Assessments: present, insert one or more four-line blocks before Unknowns:
+Assessment: supplied option ID | eligible or ineligible or unknown
+Reason: one concise reason
+Evidence: comma-separated supplied Fact IDs, or none
+Constraints: comma-separated supplied Constraint IDs, or none
+
+For Unknowns: present, append one or more three-line blocks:
+Unknown: description of the unknown
+Affected options: comma-separated supplied option IDs, or none
+Material: yes or no
+
+Replace placeholders with actual values; do not repeat headers or add prose outside
+these fields.

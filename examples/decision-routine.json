@@ -1,0 +1,43 @@
+{
+  "id": "walkthrough-routine",
+  "description": "Recommend a queue for a routine service request",
+  "context": "Synthetic offline example; recommend only, do not execute routing.",
+  "facts": [
+    {
+      "id": "urgent",
+      "statement": "Verified current urgency classification",
+      "value": false,
+      "source": "verified-intake"
+    },
+    {
+      "id": "specialist_required",
+      "statement": "Verified specialist requirement",
+      "value": false,
+      "source": "verified-intake"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "capacity",
+      "description": "Selected queue must have positive capacity; no cross-route fallback",
+      "kind": "hard"
+    }
+  ],
+  "options": [
+    {
+      "id": "routine",
+      "description": "Routine queue",
+      "attributes": {"route": "routine", "capacity": 2}
+    },
+    {
+      "id": "expedited",
+      "description": "Expedited queue",
+      "attributes": {"route": "expedited", "capacity": 1}
+    },
+    {
+      "id": "specialist",
+      "description": "Specialist queue",
+      "attributes": {"route": "specialist", "capacity": 1}
+    }
+  ]
+}

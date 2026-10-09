@@ -1,0 +1,4 @@
+# Preserve benchmark bytes and SHA-256 hashes across Windows/Linux checkouts.
+evals/**/*.jsonl text eol=lf
+evals/**/*.json text eol=lf
+evals/manifest.json text eol=lf
