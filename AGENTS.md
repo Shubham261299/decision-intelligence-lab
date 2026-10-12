@@ -1,6 +1,6 @@
 ﻿# Repository Guidelines
 
-Decision Intelligence Lab (DecisionLab) has typed contracts, rule, direct-text and structured LLM strategies, an isolated OpenAI adapter, shared policy, a frozen benchmark, evaluator/CLI, and pytest tests. Configuration lives in `pyproject.toml`; no Git repository is initialized. These rules govern future implementation. Do not scaffold application code or install dependencies unless requested.
+Decision Intelligence Lab (DecisionLab) has typed contracts, rule, direct-text and structured LLM strategies, isolated provider adapters, shared policy, a frozen benchmark, evaluator/CLI, pytest tests, and an optional Streamlit portfolio under `app/`. Configuration lives in `pyproject.toml`; this project is an initialized Git repository. These rules govern future implementation. Do not scaffold application code or install dependencies unless requested.
 
 ## Python & Project Structure
 

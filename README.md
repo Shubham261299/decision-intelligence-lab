@@ -6,7 +6,11 @@ protocol, deterministic routing baseline and shared policy, a 30-case benchmark,
 an independent evaluator, direct and structured LLM strategies with isolated OpenAI
 and local Ollama adapters, a standalone decision/evaluation CLI, verification,
 bounded deterministic tools, reproducible experiments, and tests. There is no
-agent, UI, or action execution.
+agent or action execution. An optional offline Streamlit presentation layer is
+available in the [DecisionLab portfolio demo](docs/demo.md).
+Overview introduces the framework and research boundaries; the sidebar and overview
+actions open the Decision Playground and Research Dashboard for offline decisions and saved research evidence;
+missing local reports are labelled unavailable and never regenerated.
 
 ## Offline Quickstart
 
