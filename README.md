@@ -1,3 +1,11 @@
+<div align="center">
+
+<img src=".github/banner.svg" width="100%" alt="Shubham AI Lab, system 08 (Open Source · MIT + CC BY 4.0): Decision input → Strategy (rules · LLM) → Policy + verification → Independent evaluator → Accept · abstain · review. Stack: Python, Pydantic, OpenAI, Ollama, Streamlit.">
+
+[🌐 Portfolio](https://shubham-ai-lab.vercel.app/) · [👤 GitHub profile](https://github.com/Shubham261299) · [💼 LinkedIn](https://www.linkedin.com/in/shubham-jamdar-2571271b3)
+
+</div>
+
 # Decision Intelligence Lab (DecisionLab)
 
 An experimental framework for evaluating LLMs as structured decision makers.
