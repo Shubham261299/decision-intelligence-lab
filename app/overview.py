@@ -7,6 +7,7 @@ import streamlit as st
 from app import research_data as data
 from app.presentation import render_table
 from app.research_dashboard import INTERPRETATIONS
+from app.release_scope import research_is_withheld
 
 QUESTION = "How can we make LLM-based decision making more measurable, structured, explainable and reliable?"
 
@@ -34,7 +35,7 @@ def render_overview(root: Path | None = None) -> None:
     with second:
         st.button("Explore Research Dashboard", on_click=navigate,
                   args=("Research Dashboard",), key="open-research", use_container_width=True)
-        st.caption("Read recorded comparisons, failures and provenance. No models are called.")
+        st.caption("Explore benchmark and experiment methodology. Local raw reports are not loaded.")
     st.divider()
     st.subheader("A framework for inspectable decisions")
     sections = [
@@ -58,9 +59,29 @@ def render_overview(root: Path | None = None) -> None:
                "Diagnostic inspection and human review never repair outputs or change primary scores. "
                "The presentation layer reads results; it does not redefine decision logic.")
     st.divider()
-    st.subheader("What the experiments show")
-    st.caption("Observations below are read from saved artifacts, with development and held-out results kept separate. "
-               "Interpretations are sourced from docs/research-findings.md, not inferred from missing reports.")
+    st.subheader("Research experiments")
+    if research_is_withheld(root):
+        st.info("The public app does not load local raw reports, saved results or review packets. "
+                "Findings and accepted annotations already committed in the existing repository history "
+                "remain unchanged; this display restriction does not remove them.")
+        st.caption("The software supports strategy comparisons and matched experiments. "
+                   "This view does not present their historical outcomes.")
+    else:
+        render_saved_findings(root)
+    st.subheader("Research boundaries")
+    st.warning("Small synthetic benchmark, not production certification. The held-out split is a "
+               "development holdout with public labels, not an independent blind test.")
+    st.write("Structural validity, valid evidence references and verifier acceptance do not establish "
+             "semantic evidence support or factual correctness. Confidence is uncalibrated; "
+             "related cases and repetitions are not independent samples.")
+    st.caption("No general superiority or statistical-significance claim is made by this app.")
+    st.caption("GitHub repository: [Shubham261299/decision-intelligence-lab]"
+               "(https://github.com/Shubham261299/decision-intelligence-lab)")
+
+
+def render_saved_findings(root: Path) -> None:
+    """Private local review only; never reached by the public release profile."""
+    st.caption("Private review: observations from saved artifacts; interpretations from retained documentation.")
     documented = (root / "docs/research-findings.md").is_file()
     titles = {
         "Strategy comparison": "1 / Strategy comparison",
@@ -92,16 +113,8 @@ def render_overview(root: Path | None = None) -> None:
     st.caption("Experiments 1 and 2 have no prospectively preserved raw-response records. "
                "Experiment 3 preserves raw responses where returned; a provider timeout cannot be reconstructed. "
                "Open the Research Dashboard for paired outcomes, diagnostic analysis and evidence availability.")
-    st.subheader("Research boundaries")
-    st.warning("Small synthetic benchmark, not production certification. The held-out split is a "
-               "development holdout with public labels, not an independent blind test.")
-    st.write("Structural validity, valid evidence references and verifier acceptance do not establish "
-             "semantic evidence support or factual correctness. Confidence is uncalibrated; "
-             "related cases and repetitions are not independent samples.")
     st.caption("Accepted first-pass review is user-accepted and assistant-assisted, not independent blind expert validation. "
                "No general superiority or statistical-significance claim follows from these experiments.")
     st.markdown("**Untested hypothesis**")
     st.write("Representation-induced generation, output instructions and parser rigidity may interact. "
              "The experiments do not isolate a pure parser-only causal effect.")
-    st.caption("GitHub repository: pending manual confirmation in project configuration or documentation. "
-               "No unverified repository link is published here.")

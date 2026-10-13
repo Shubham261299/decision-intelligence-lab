@@ -9,8 +9,25 @@ bounded deterministic tools, reproducible experiments, and tests. There is no
 agent or action execution. An optional offline Streamlit presentation layer is
 available in the [DecisionLab portfolio demo](docs/demo.md).
 Overview introduces the framework and research boundaries; the sidebar and overview
-actions open the Decision Playground and Research Dashboard for offline decisions and saved research evidence;
-missing local reports are labelled unavailable and never regenerated.
+actions open the Decision Playground and Research Dashboard for offline decisions and experiment methodology.
+The app does not load local raw experiment reports or review packets in its public profile.
+
+This project retains its existing repository and Git history at
+`Shubham261299/decision-intelligence-lab`. See the [release plan](docs/software-first-release.md).
+[Historical findings](docs/research-findings.md), the
+[accepted first-pass annotations](docs/reviews/experiment-3-first-pass-v1.json) and
+their test already belong to the initial commit. They are preserved, not removed
+from history. The untracked raw evidence archive and rights-review records remain
+local and are not approved for publication. Publication history is not rights clearance.
+
+## Licensing
+
+Original project software is licensed under [MIT](LICENSE). Eligible original
+documentation and research materials are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0).
+See [the licensing scope](LICENSING.md) for attribution, file categories and exclusions.
+Dependencies, model-generated text and other third-party material are not relicensed.
+The research archive remains unpublished; excluded model/third-party content still
+requires separate rights review before publication.
 
 ## Offline Quickstart
 
@@ -29,7 +46,7 @@ is demonstrated with `examples/decision-missing-urgency.json`: successful absten
 and required review, not execution failure. After installation, `decisionlab decide`
 is equivalent. See the [offline walkthrough](docs/offline-quickstart.md) for the
 input contract, representative output, exit codes, other existing strategies and
-how to read saved experiments without rerunning them. Setup instructions follow.
+the app's evidence boundary. Setup instructions follow.
 
 ## Development
 
@@ -88,7 +105,7 @@ Run metadata carries schema version `1`; no persistence migration exists yet.
 See [the implementation plan](docs/PLANS.md) and [contributor rules](AGENTS.md).
 The MVP milestones, including standalone decisions and the reproducible offline
 walkthrough, are implemented. Known routing, evaluation and research limitations
-remain explicit in the plan and [research interpretation](docs/research-findings.md).
+remain explicit in the plan and [existing-repository release plan](docs/software-first-release.md).
 
 ## Benchmark
 
@@ -150,8 +167,8 @@ and a compatible model:
 python -m pytest -q --run-live tests/test_openai_live.py --basetemp .pytest_cache/live-tests
 ```
 
-OpenAI live API validation remains unverified; local Ollama benchmark results are
-recorded in the [research interpretation](docs/research-findings.md). See
+Historical findings are documented separately; the app does not load the local
+supporting archive. They do not establish general live-provider reliability. See
 [structured strategy documentation](docs/structured-llm.md) for details and limits.
 
 ## Direct LLM Comparison
@@ -172,8 +189,8 @@ python -m decisionlab.cli evaluate --strategy structured-llm --allow-live --spli
 
 Each command makes 20 paid calls before repeats/retries. Compare outcome correctness,
 execution failures, coverage, review, violations, and usage together; selected-output
-accuracy alone hides failures. Local qwen2.5:14b results are recorded in the
-[research interpretation](docs/research-findings.md). See
+accuracy alone hides failures. Historical findings remain in existing documentation;
+raw supporting reports remain local. See
 [the direct strategy and comparison protocol](docs/direct-llm.md).
 
 ## Strategy Comparison Experiment
@@ -272,6 +289,6 @@ without generating or downloading. No API key is required; generation still need
 
 [Experiment 3](docs/representation-experiment.md) compares labelled text with
 unconstrained JSON using counterbalanced dev pairs, raw-response capture and
-separate failure diagnosis. Its dev run and two-item user-accepted, assistant-assisted
-first-pass review are recorded in [research-findings.md](docs/research-findings.md).
+separate failure diagnosis. Findings and accepted annotations remain in existing
+history; raw outputs, assistant analysis and archive copies are not approved for addition.
 Diagnostics never repair failed outputs or alter primary scores.

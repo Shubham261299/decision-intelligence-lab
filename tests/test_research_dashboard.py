@@ -83,6 +83,7 @@ def test_incomplete_enforcement_pairs_are_unavailable(tmp_path: Path, counts: di
 def test_dashboard_without_local_runs_still_works(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     testing = pytest.importorskip("streamlit.testing.v1")
     monkeypatch.setattr(data, "ROOT", tmp_path)
+    monkeypatch.setattr("app.research_dashboard.research_is_withheld", lambda root: False)
     app = testing.AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app/streamlit_app.py")).run()
     app.selectbox(key="page").set_value("Research Dashboard").run()
     assert not app.exception
@@ -102,6 +103,7 @@ def test_dashboard_integration_with_synthetic_saved_report(
     path.parent.mkdir(parents=True)
     path.write_text(report.model_dump_json(), encoding="utf-8")
     monkeypatch.setattr(data, "ROOT", tmp_path)
+    monkeypatch.setattr("app.research_dashboard.research_is_withheld", lambda root: False)
 
     def forbidden(*args: object, **kwargs: object) -> None:
         raise AssertionError("Research presentation cannot execute a strategy")
@@ -123,6 +125,7 @@ def test_dashboard_integration_with_synthetic_saved_report(
 def test_actual_local_evidence_when_available(monkeypatch: pytest.MonkeyPatch) -> None:
     """Optional archived files are never prerequisites for a fresh checkout."""
     testing = pytest.importorskip("streamlit.testing.v1")
+    monkeypatch.setattr("app.research_dashboard.research_is_withheld", lambda root: False)
     if not (data.ROOT / "runs/representation/dev-20261009/experiment.json").exists():
         pytest.skip("Local research archive unavailable")
     for splits in data.COMPARISONS.values():

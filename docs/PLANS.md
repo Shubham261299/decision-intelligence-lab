@@ -11,8 +11,9 @@ validation/evaluation/verification. R003 and R022 have versioned user-accepted,
 assistant-assisted first-pass annotations; these are not independent blind expert
 validation and do not repair failed outputs or change scores. The remaining raw
 responses have not received comprehensive human semantic review. See
-[research-findings.md](research-findings.md) and the
-[accepted review record](reviews/experiment-3-first-pass-v1.json).
+the historical findings and accepted review record already in the initial commit.
+Their history is preserved; raw archive files remain local and unapproved for addition.
+See [release plan](software-first-release.md).
 
 **Milestone 13 is complete: standalone decisions and the offline walkthrough.**
 `decide --input ... --strategy ...` validates one JSON problem and uses existing
@@ -61,7 +62,7 @@ verification: a provider-neutral text contract, shared OpenAI transport/settings
 versioned policy-equivalent prompt, strict text-to-Pydantic parser, and CLI support.
 Mocked parser/adapter/pipeline tests cover failures without repair. Direct and
 structured live benchmark comparisons are recorded in `runs/ollama-first/`;
-see `direct-llm.md` and `research-findings.md`.
+see `direct-llm.md` and the historical findings already in repository history.
 
 The strategy comparison increment is now implemented: one benchmark snapshot,
 shared runner/evaluator, deterministic side-by-side JSON/text reports, explicit

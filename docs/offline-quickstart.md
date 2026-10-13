@@ -140,31 +140,14 @@ strategies; rules/tool-assisted ignore provider settings. See [Ollama](ollama.md
 or [structured LLM](structured-llm.md) for configuration. No live calls were made
 to implement or verify this milestone; provider wiring tests are mocked.
 
-## Understand the Existing Experiments Without Rerunning Them
+## Research Evidence Boundary
 
-Read the portable [research interpretation](research-findings.md) first. It includes
-the first strategy comparison, matched schema-enforcement ablation, matched
-representation experiment, and the limited accepted first-pass diagnostic review.
-Accuracy, parsing, references, policy, review and confidence remain separate.
-
-Local experiment files are intentionally ignored under `runs/`, so a fresh checkout
-may not contain them. When available, inspect these saved reports without model
-calls, provider configuration or benchmark re-evaluation:
-
-```powershell
-Get-Content runs/ollama-first/dev/comparison.txt
-Get-Content runs/ollama-first/held-out/comparison.txt
-Get-Content runs/matched-json/dev/comparison.txt
-Get-Content runs/representation/dev-20261009/experiment.txt
-```
-
-Their neighboring JSON reports contain per-case records and metrics. Experiment 3
-also preserves raw responses and a protocol/audit. Historical reports are evidence
-from those recorded runs, not guaranteed results from rerunning current code.
-The benchmark is small and synthetic; neither valid JSON nor stable decisions
-establish production reliability. Confidence is optional and uncalibrated, evidence
-support remains separate from reference validity, and the two reviewed responses
-are not independent blind expert validation.
+The existing repository preserves historical findings and accepted annotations
+already in its initial commit. Raw reports and archive copies remain local and
+are not approved for addition. The public app does not load them, even when retained
+locally. See [release plan](software-first-release.md). No model superiority or
+production reliability is established by this walkthrough.
+Reference validity and verifier acceptance remain separate from semantic support.
 
 ## Verify the Local Setup
 

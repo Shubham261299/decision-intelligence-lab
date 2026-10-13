@@ -7,6 +7,7 @@ import streamlit as st
 
 from app import research_data as data
 from app.presentation import render_table
+from app.release_scope import research_is_withheld
 from decisionlab.evaluation.benchmark import Manifest
 from decisionlab.evaluation.human_review import HumanReviewRecord
 from decisionlab.representation_experiment import PairedAnalysis, RepresentationReport
@@ -117,6 +118,20 @@ def render_dashboard(root: Path | None = None) -> None:
     else:
         st.warning(manifest.error)
     st.caption("Selection, abstention, execution failure, policy, review and confidence are separate dimensions. Held-out labels are public: this is a development holdout, not a blind external test.")
+    if research_is_withheld(root):
+        st.info("The public app does not load local raw reports, saved experiment results, "
+                "diagnoses or review packets. Findings and accepted annotations already committed "
+                "in the existing repository history remain unchanged; this display restriction "
+                "does not remove them.")
+        st.subheader("Available experiment software")
+        st.write("Compare strategies on the same frozen inputs; vary schema enforcement with matched JSON prompts; "
+                 "compare output representations with prospective diagnostics. These are implemented workflows, "
+                 "not published outcome claims.")
+        st.caption("Use the Decision Playground for offline examples. Benchmark schemas, policy and metric definitions "
+                   "are included in the source and documentation. The local raw archive remains "
+                   "unapproved for publication; existing committed findings and annotations are preserved.")
+        st.warning("Structural/reference validity does not prove semantic support or factual correctness.")
+        return
     experiment = st.selectbox("Experiment", list(data.COMPARISONS), key="research-experiment")
     questions = {
         "Strategy comparison": "Experiment 1 - RuleBased vs DirectLLM vs StructuredLLM. Compare complete strategy pipelines on dev and held-out separately.",

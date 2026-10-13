@@ -18,12 +18,15 @@ def test_overview_is_default_and_evidence_absence_is_explicit(
     assert not app.exception
     assert app.selectbox(key="page").value == "Overview"
     assert any("measurable, structured, explainable and reliable" in item.value for item in app.markdown)
-    assert len(app.warning) >= 5
+    assert any("does not load local raw reports" in item.value for item in app.info)
+    assert any("existing repository history" in item.value and "does not remove them" in item.value
+               for item in app.info)
     assert not app.dataframe
     assert any("independent blind test" in item.value for item in app.warning)
     assert any("semantic evidence support" in item.value for item in app.markdown)
-    assert any("pending manual confirmation" in item.value for item in app.caption)
-    assert any("interpretation unavailable" in item.value for item in app.caption)
+    assert any("(https://github.com/Shubham261299/decision-intelligence-lab)" in item.value
+               for item in app.caption)
+    assert all("pending manual confirmation" not in item.value for item in app.caption)
 
 
 @pytest.mark.parametrize("button,page", [
@@ -64,6 +67,10 @@ def test_overview_reports_observations_from_saved_counts(tmp_path: Path, monkeyp
     (tmp_path / "docs").mkdir()
     (tmp_path / "docs/research-findings.md").write_bytes((data.ROOT / "docs/research-findings.md").read_bytes())
     monkeypatch.setattr(data, "ROOT", tmp_path)
+    (tmp_path / "software-first-release.json").write_text(
+        '{"release_mode":"private-research-review","research_evidence":"available_for_local_review"}',
+        encoding="utf-8",
+    )
     app = testing.AppTest.from_file(str(ENTRY)).run()
     assert not app.exception
     tables = [item.value for item in app.markdown if '<table class="research-table' in item.value]

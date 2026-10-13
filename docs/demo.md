@@ -23,8 +23,9 @@ the command also disables Streamlit usage telemetry.
 ## Walkthrough
 
 Overview introduces the research question, framework, methodology and limitations.
-Its experiment summaries read saved reports, keeping observations separate from
-documented interpretations. Missing evidence remains visibly unavailable. Use
+The public profile does not load saved local reports or interpretations, even
+if their files exist locally. Existing findings and accepted annotations remain in
+repository history; this presentation restriction does not remove them. Use
 **Open Decision Playground**, **Explore Research Dashboard**, or the sidebar
 workspace selector to navigate. Return to **Overview** through the sidebar.
 Navigation uses Streamlit-native callbacks; it never invokes a model or experiment.
@@ -60,33 +61,15 @@ The playground does not read benchmark expectations or saved research results.
 
 Choose **Research Dashboard** in the sidebar workspace selector; switch back to
 **Decision Playground** to run synthetic examples. Launch instructions are unchanged.
-The dashboard only reads saved files; it never invokes a strategy or re-evaluates
-the benchmark. Each experiment has its own split selector, primary metric table,
-correctness chart, per-case outcomes, failure codes, confidence diagnostics and
-provenance. Rates retain recorded numerators and denominators.
+The dashboard presents benchmark scope and the implemented experimental approach.
+Local raw reports, responses, diagnostics and annotations are not loaded or
+reconstructed. Existing committed findings/review records remain separately readable. No strategy is
+executed from this workspace. See [release scope](software-first-release.md).
 
-Evidence sources:
-
-- Experiment 1: `runs/ollama-first/{dev,held-out}/comparison.json`, root protocol/audit.
-- Experiment 2: `runs/matched-json/dev/comparison.json`, root paired analysis/protocol/audit.
-- Experiment 3: `runs/representation/dev-20261009/` comparison, typed experiment
-  report, paired analysis, protocol, audit and raw-response journal.
-- Benchmark scope: `evals/manifest.json`; interpretations: `docs/research-findings.md`;
-  accepted annotations: `docs/reviews/experiment-3-first-pass-v1.json`.
-
-Comparison files use the existing `ComparisonReport` contract. Experiment 3 uses
-`RepresentationReport` and `PairedAnalysis`; Experiment 2's older paired JSON is
-handled separately. Missing or malformed evidence is marked unavailable, never
-replaced by invented metrics. `runs/` remains ignored, so a fresh checkout may show
-methodology and review documentation without local experiment metrics.
-
-Experiments 1 and 2 lack prospective raw-response records. Experiment 3 retains
-120 attempts and 119 raw responses; its timeout has no reconstructable response.
-The interrupted `runs/representation/dev/` attempt is excluded. Historical pending
-review flags remain unchanged; the separate accepted first-pass record documents
-later acceptance. Review is assistant-assisted, not independent blind validation.
-The dashboard reports recorded audit claims and artifact availability, not a full
-independent integrity certification. No held-out ablation results are invented.
+The public presentation profile is declared in the root `software-first-release.json`.
+Its old export inventory is superseded by the single-repository plan. Missing
+or malformed configuration also withholds evidence. A private local-review mode
+is separate from publication approval; it is never enabled by the public manifest.
 
 ## Checks and Boundaries
 
