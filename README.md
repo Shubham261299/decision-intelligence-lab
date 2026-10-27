@@ -1,24 +1,22 @@
-<div align="center">
+<img src="docs/images/portfolio-cover.webp" width="100%" alt="Decision Intelligence Lab: conceptual project artwork matching the portfolio.">
 
-<img src=".github/banner.svg" width="100%" alt="Shubham AI Lab, system 08 (Open Source · MIT + CC BY 4.0): Decision input → Strategy (rules · LLM) → Policy + verification → Independent evaluator → Accept · abstain · review. Stack: Python, Pydantic, OpenAI, Ollama, Streamlit.">
+# Decision Intelligence Lab
 
-[🌐 Portfolio](https://shubham-ai-lab.vercel.app/) · [👤 GitHub profile](https://github.com/Shubham261299) · [💼 LinkedIn](https://www.linkedin.com/in/shubham-jamdar-2571271b3)
+### Sometimes the right decision is to abstain.
 
-</div>
+Compare structured recommendations, policy checks and independent evaluation without letting the system execute actions.
 
-# Decision Intelligence Lab (DecisionLab)
+**Source available · Offline CLI and optional local Streamlit demo. Live-provider experiments are explicit opt-in; no agent executes actions.**
 
-An experimental framework for evaluating LLMs as structured decision makers.
-Currently implemented: Pydantic domain contracts, a provider-independent strategy
-protocol, deterministic routing baseline and shared policy, a 30-case benchmark,
-an independent evaluator, direct and structured LLM strategies with isolated OpenAI
-and local Ollama adapters, a standalone decision/evaluation CLI, verification,
-bounded deterministic tools, reproducible experiments, and tests. There is no
-agent or action execution. An optional offline Streamlit presentation layer is
-available in the [DecisionLab portfolio demo](docs/demo.md).
-Overview introduces the framework and research boundaries; the sidebar and overview
-actions open the Decision Playground and Research Dashboard for offline decisions and experiment methodology.
-The app does not load local raw experiment reports or review packets in its public profile.
+**[Explore the case study ↗](https://shubham-ai-lab.vercel.app/work/decision-intelligence-lab)** · [Technical guide](#technical-guide) · [More projects](https://shubham-ai-lab.vercel.app/work)
+
+## Engineering receipt
+
+| Decision | Why it matters |
+| --- | --- |
+| Separate the evaluator | Reference expectations are independent from strategy generation. |
+| Preserve the recommendation | Policy and verification report findings instead of silently repairing a decision. |
+| Distinguish abstention from failure | A successful decision to abstain is different from a failed model call. |
 
 This project retains its existing repository and Git history at
 `Shubham261299/decision-intelligence-lab`. See the [release plan](docs/software-first-release.md).
@@ -27,6 +25,8 @@ This project retains its existing repository and Git history at
 their test already belong to the initial commit. They are preserved, not removed
 from history. The untracked raw evidence archive and rights-review records remain
 local and are not approved for publication. Publication history is not rights clearance.
+
+## Technical guide
 
 ## Licensing
 
@@ -300,3 +300,4 @@ unconstrained JSON using counterbalanced dev pairs, raw-response capture and
 separate failure diagnosis. Findings and accepted annotations remain in existing
 history; raw outputs, assistant analysis and archive copies are not approved for addition.
 Diagnostics never repair failed outputs or alter primary scores.
+
